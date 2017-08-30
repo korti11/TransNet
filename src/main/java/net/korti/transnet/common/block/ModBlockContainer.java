@@ -5,7 +5,9 @@ import net.korti.transnet.common.constants.ModInfo;
 import net.korti.transnet.common.helper.LogHelper;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
@@ -34,5 +36,10 @@ public class ModBlockContainer extends BlockContainer {
             LogHelper.e(e.getMessage(), e);
         }
         return null;
+    }
+
+    @Override
+    public EnumBlockRenderType getRenderType(IBlockState state) {
+        return EnumBlockRenderType.MODEL;
     }
 }
