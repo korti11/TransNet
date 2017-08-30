@@ -21,12 +21,24 @@ public final class LogHelper {
         logger.debug(message);
     }
 
+    public static void d(String message, Throwable throwable) {
+        logger.debug(message, throwable);
+    }
+
     public static void e(String message) {
         logger.error(message);
     }
 
+    public static void e(String message, Throwable throwable) {
+        logger.error(message, throwable);
+    }
+
     public static void w(String message) {
         logger.warn(message);
+    }
+
+    public static void w(String message, Throwable throwable) {
+        logger.warn(message, throwable);
     }
 
 }
