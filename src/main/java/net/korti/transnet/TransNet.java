@@ -2,6 +2,7 @@ package net.korti.transnet;
 
 import net.korti.transnet.common.CommonProxy;
 import net.korti.transnet.common.constants.ModInfo;
+import net.korti.transnet.common.helper.LogHelper;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -19,7 +20,8 @@ public class TransNet {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-
+        LogHelper.setLogger(event.getModLog());
+        LogHelper.i("Lovely, lovely new world. It's time to transport some fluids and items :D");
     }
 
     @Mod.EventHandler
