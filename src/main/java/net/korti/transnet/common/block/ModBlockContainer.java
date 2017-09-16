@@ -12,10 +12,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-/**
- * Created by Korti on 30.08.2017.
- */
-public class ModBlockContainer extends BlockContainer {
+public abstract class ModBlockContainer extends BlockContainer {
 
     private final Class<? extends TileEntity> tileEntityClass;
 
