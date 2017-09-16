@@ -32,6 +32,7 @@ public class TransNet {
     public void preInit(FMLPreInitializationEvent event) {
         LogHelper.setLogger(event.getModLog());
         LogHelper.i("Lovely, lovely new world. It's time to transport some fluids and items :D");
+        proxy.preInit();
     }
 
     @Mod.EventHandler
