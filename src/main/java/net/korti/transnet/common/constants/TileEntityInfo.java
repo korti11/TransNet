@@ -20,4 +20,7 @@ public final class TileEntityInfo {
     public static final int LNR_RANGE = 64;
     public static final int LNR_MAX_CONNECTIONS = 32;
 
+    // Tile Entity Interface Node
+    public static final String IN_ID = "tn_in";
+
 }

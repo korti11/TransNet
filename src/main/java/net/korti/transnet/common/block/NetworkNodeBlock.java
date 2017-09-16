@@ -5,9 +5,9 @@ import net.minecraft.block.material.Material;
 
 public class NetworkNodeBlock extends RotatableBlock {
 
-    public NetworkNodeBlock(Material materialIn, String name,
+    public NetworkNodeBlock(String name,
                             Class<? extends TileEntityNetworkNode> tileEntityClass) {
-        super(materialIn, name, tileEntityClass);
+        super(Material.IRON, name, tileEntityClass);
     }
 
 }

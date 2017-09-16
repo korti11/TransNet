@@ -1,9 +1,11 @@
 package net.korti.transnet.common.registry;
 
 import com.google.common.base.Preconditions;
+import net.korti.transnet.common.block.NetworkNodeBlock;
 import net.korti.transnet.common.block.NetworkRelayBlock;
 import net.korti.transnet.common.constants.BlockInfo;
 import net.korti.transnet.common.constants.ModInfo;
+import net.korti.transnet.common.tileentity.TileEntityInterfaceNode;
 import net.korti.transnet.common.tileentity.TileEntityLargeNetworkRelay;
 import net.korti.transnet.common.tileentity.TileEntityMediumNetworkRelay;
 import net.korti.transnet.common.tileentity.TileEntitySmallNetworkRelay;
@@ -23,13 +25,15 @@ import java.util.Set;
 @GameRegistry.ObjectHolder(ModInfo.MOD_ID)
 public class ModBlocks {
 
-    // Network Relays
     private static NetworkRelayBlock smallNetworkRelay =
             new NetworkRelayBlock(BlockInfo.SMALL_NETWORK_RELAY, TileEntitySmallNetworkRelay.class);
     private static NetworkRelayBlock mediumNetworkRelay =
             new NetworkRelayBlock(BlockInfo.MEDIUM_NETWORK_RELAY, TileEntityMediumNetworkRelay.class);
     private static NetworkRelayBlock largeNetworkRelay =
             new NetworkRelayBlock(BlockInfo.LARGE_NETWORK_RELAY, TileEntityLargeNetworkRelay.class);
+
+    private static NetworkNodeBlock interfaceNetworkNode =
+            new NetworkNodeBlock(BlockInfo.INTERFACE_NODE, TileEntityInterfaceNode.class);
 
     @Mod.EventBusSubscriber
     public static class RegistrationHandler {
@@ -43,7 +47,8 @@ public class ModBlocks {
             final Block[] blocks = {
                     smallNetworkRelay,
                     mediumNetworkRelay,
-                    largeNetworkRelay
+                    largeNetworkRelay,
+                    interfaceNetworkNode
             };
 
             registry.registerAll(blocks);
@@ -56,7 +61,8 @@ public class ModBlocks {
             final ItemBlock[] items = {
                     new ItemBlock(smallNetworkRelay),
                     new ItemBlock(mediumNetworkRelay),
-                    new ItemBlock(largeNetworkRelay)
+                    new ItemBlock(largeNetworkRelay),
+                    new ItemBlock(interfaceNetworkNode)
             };
 
             for (final ItemBlock item : items) {
