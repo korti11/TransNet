@@ -5,9 +5,9 @@ import net.minecraft.block.material.Material;
 
 public class NetworkRelayBlock extends RotatableBlock {
 
-    public NetworkRelayBlock(Material materialIn, String name,
+    public NetworkRelayBlock(String name,
                              Class<? extends TileEntityNetworkRelay> tileEntityClass) {
-        super(materialIn, name, tileEntityClass);
+        super(Material.IRON, name, tileEntityClass);
     }
 
 }

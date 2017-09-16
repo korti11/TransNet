@@ -1,7 +1,12 @@
 package net.korti.transnet.common.registry;
 
 import com.google.common.base.Preconditions;
+import net.korti.transnet.common.block.NetworkRelayBlock;
+import net.korti.transnet.common.constants.BlockInfo;
 import net.korti.transnet.common.constants.ModInfo;
+import net.korti.transnet.common.tileentity.TileEntityLargeNetworkRelay;
+import net.korti.transnet.common.tileentity.TileEntityMediumNetworkRelay;
+import net.korti.transnet.common.tileentity.TileEntitySmallNetworkRelay;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -18,6 +23,14 @@ import java.util.Set;
 @GameRegistry.ObjectHolder(ModInfo.MOD_ID)
 public class ModBlocks {
 
+    // Network Relays
+    private static NetworkRelayBlock smallNetworkRelay =
+            new NetworkRelayBlock(BlockInfo.SMALL_NETWORK_RELAY, TileEntitySmallNetworkRelay.class);
+    private static NetworkRelayBlock mediumNetworkRelay =
+            new NetworkRelayBlock(BlockInfo.MEDIUM_NETWORK_RELAY, TileEntityMediumNetworkRelay.class);
+    private static NetworkRelayBlock largeNetworkRelay =
+            new NetworkRelayBlock(BlockInfo.LARGE_NETWORK_RELAY, TileEntityLargeNetworkRelay.class);
+
     @Mod.EventBusSubscriber
     public static class RegistrationHandler {
 
@@ -28,7 +41,9 @@ public class ModBlocks {
             final IForgeRegistry<Block> registry = event.getRegistry();
 
             final Block[] blocks = {
-
+                    smallNetworkRelay,
+                    mediumNetworkRelay,
+                    largeNetworkRelay
             };
 
             registry.registerAll(blocks);
@@ -38,7 +53,9 @@ public class ModBlocks {
             final IForgeRegistry<Item> registry = event.getRegistry();
 
             final ItemBlock[] items = {
-
+                    new ItemBlock(smallNetworkRelay),
+                    new ItemBlock(mediumNetworkRelay),
+                    new ItemBlock(largeNetworkRelay)
             };
 
             for (final ItemBlock item : items) {
