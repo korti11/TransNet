@@ -49,6 +49,7 @@ public class ModBlocks {
             registry.registerAll(blocks);
         }
 
+        @SubscribeEvent
         public static void registerItemBlocks(final RegistryEvent.Register<Item> event) {
             final IForgeRegistry<Item> registry = event.getRegistry();
 
