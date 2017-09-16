@@ -10,7 +10,6 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
-
 version = "$modVersion.${System.getenv("BUILD_NUMBER") ?: System.getenv("CIRCLE_BUILD_NUM") ?: 0}-$releaseType"
 group = modGroup // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = modBaseName
@@ -34,6 +33,9 @@ minecraft {
 
     replace "@API_VERSION@", project.apiVersion
     replaceIn "package-info.java"
+
+    replace "@MOD_VERSION@", project.version
+    replaceIn "ModInfo.java"
 }
 
 dependencies {
